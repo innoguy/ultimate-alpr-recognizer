@@ -52,7 +52,6 @@ else
     echo "    SDK directory exists. Skipping clone."
 fi
 
-mkdir -p $SDK_BIN_DIR
 cd $SDK_BIN_DIR
 if [ ! -f "libtensorflow.so" ]; then
     echo "==> [6/9] Downloading TensorFlow runtime..."
@@ -80,7 +79,5 @@ fi
 
 echo "==> [9/9] Example run command:"
 echo "---------------------------------------------"
-echo "LD_LIBRARY_PATH=./ultimateALPR-SDK/binaries/linux/x86_64 ./build/recognizer \\
-  --image ./ultimateALPR-SDK/assets/images/lic_us_1280x720.jpg \\
-  --assets ./ultimateALPR-SDK/assets/"
+echo "LD_LIBRARY_PATH=./ultimateALPR-SDK/binaries/linux/x86_64 ./build/recognizer --image ./testData/multi.jpg --assets ./ultimateALPR-SDK/assets/ "
 echo "---------------------------------------------"
