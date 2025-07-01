@@ -7,7 +7,7 @@ echo "    Detected ARCH: $ARCH"
 
 PROJECT_DIR=ultimate-alpr-recognizer
 SDK_DIR=ultimateALPR-SDK
-SDK_BIN_DIR=$SDK_DIR/binaries/linux/x86_64
+SDK_BIN_DIR=$SDK_DIR/binaries/linux/$ARCH
 
 echo "==> [2/9] Cloning your recognizer project..."
 if [ ! -d "$PROJECT_DIR" ]; then
@@ -79,5 +79,5 @@ fi
 
 echo "==> [9/9] Example run command:"
 echo "---------------------------------------------"
-echo "LD_LIBRARY_PATH=./ultimateALPR-SDK/binaries/linux/x86_64 ./build/recognizer --image ./testData/multi.jpg --assets ./ultimateALPR-SDK/assets/ "
+echo "LD_LIBRARY_PATH=./ultimateALPR-SDK/binaries/linux/"$ARCH "./build/recognizer --image ./testData/multi.jpg --assets ./ultimateALPR-SDK/assets/ "
 echo "---------------------------------------------"
