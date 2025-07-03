@@ -11,15 +11,15 @@ SDK_BIN_DIR=$SDK_DIR/binaries/linux/$ARCH
 
 echo "==> [2/9] Cloning your recognizer project..."
 if [ ! -d "$PROJECT_DIR" ]; then
-    git clone https://github.com/RayLo0204/ultimate-alpr-recognizer.git
+    git clone https://github.com/innoguy/ultimate-alpr-recognizer.git
 else
     echo "    Project directory exists. Skipping clone."
 fi
 cd $PROJECT_DIR
 
 echo "==> [3/9] Installing required packages..."
-sudo apt update
-sudo apt install -y \
+apt update
+apt install -y \
     build-essential \
     cmake \
     git \
@@ -34,13 +34,13 @@ sudo apt install -y \
 if [[ "$ARCH" == "x86_64" ]]; then
     echo "==> [4/9] Installing Intel OpenVINO basekit..."
     wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
-        | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+        | gpg --dearmor | tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
 
     echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" \
-        | sudo tee /etc/apt/sources.list.d/oneAPI.list
+        | tee /etc/apt/sources.list.d/oneAPI.list
 
-    sudo apt update
-    sudo apt install -y intel-basekit
+    apt update
+    apt install -y intel-basekit
 else
     echo "==> [!] Skipping OpenVINO basekit (unsupported on $ARCH)"
 fi

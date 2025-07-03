@@ -8,5 +8,4 @@ RUN apt update
 RUN apt -y install git vim
 RUN chmod +x setup.sh
 RUN ./setup.sh
-ENTRYPOINT ["recognizer"]
-
+ENTRYPOINT ["/app/ultimate-alpr-recognizer/build/recognizer"]
