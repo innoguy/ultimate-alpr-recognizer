@@ -17,7 +17,7 @@ find_package(nlohmann_json REQUIRED)
 include_directories(${nlohmann_json_INCLUDE_DIRS})
 
 # Path to the ultimateALPR SDK precompiled binary library
-set(ULTALPR_LIB_PATH "./ultimateALPR-SDK/binaries/linux/"${CMAKE_SYSTEM_PROCESSOR})
+set(ULTALPR_LIB_PATH "./ultimateALPR-SDK/binaries/linux/aarch64")
 link_directories(${ULTALPR_LIB_PATH})
 
 # Source files for the recognizer
